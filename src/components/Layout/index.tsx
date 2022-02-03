@@ -9,9 +9,9 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
-      <header>navabar</header>
+      <header className={classes.navbar}>navabar</header>
       <main className={classes.mainBody}>{children}</main>
-      <footer>footer</footer>
+      <footer className={classes.layoutFooter}>footer</footer>
     </>
   );
 };
