@@ -4,7 +4,6 @@ import { Button } from "@mui/material";
 import { Box } from "@mui/material";
 //typic axios fetching data and returning a jsonfile as a response
 import axios from "axios";
-
 const fetchOpapData = async (page: number) => {
   axios
     .get(`https://api.opap.gr/draws/v3.0/1100/visual-draw/90000${page}`)
@@ -17,10 +16,19 @@ const fetchOpapData = async (page: number) => {
 
 const Opap = () => {
   const [page, setPage] = useState<number>(1);
-  const { isLoading, isError, error, data, isFetching, isPreviousData } =
-    useQuery(["kino ", page], () => fetchOpapData(page), {
-      keepPreviousData: true,
-    });
+
+  //useQuery from React Query  fetching, caching, synchronizing and updating server state
+  const {
+    isLoading,
+    isError,
+    error,
+    data,
+    isFetching,
+    isPreviousData,
+    isSuccess,
+  } = useQuery(["kino ", page], () => fetchOpapData(page), {
+    keepPreviousData: true,
+  });
 
   return (
     <>
