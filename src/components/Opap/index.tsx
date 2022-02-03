@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+//typic axios fetching data and returning a jsonfile as a response
 const fetchData = () => {
   return axios
     .get("https://api.opap.gr/draws/v3.0/1100/visual-draw/928881")
