@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-
+import React from "react";
 
 import Layout from "./components/Layout";
 
-//importing views
+//importing views === with components directory but it has better structure
 import Home from "./view/Home";
 
 //importing ts styles
