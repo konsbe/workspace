@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import "./App.css";
+import Greeting from "./components/Greeting";
+import Layout from "./components/Layout";
+import InputField from "./components/InputField";
 
 function App() {
+  const [greeting, setGreeting] = useState<string>("");
+  const handleChange = (e: React.ChangeEvent<any>): void => {
+    setGreeting(e.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout>
+        <InputField name="name" value={greeting} onChange={handleChange} />
+        <Greeting greet={greeting} />
+      </Layout>
     </div>
   );
 }
