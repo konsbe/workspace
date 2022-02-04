@@ -3,10 +3,11 @@ import { Button } from "@mui/material";
 import { Box } from "@mui/material";
 //typic axios fetching data and returning a jsonfile as a response
 import axios from "axios";
-const fetchOpapData = async (page: number) => {
+const fetchOpapData = (page: number) => {
+  const url = `https://api.opap.gr/draws/v3.0/1100/visual-draw/90000${page}`;
   return new Promise((resolve, reject) => {
     axios
-      .get(`https://api.opap.gr/draws/v3.0/1100/visual-draw/90000${page}`)
+      .get(url)
       .then((res) => {
         resolve(res);
       })
@@ -30,8 +31,7 @@ const Opap = () => {
       setNumbers(res.data.winningNumbers.list);
     });
   }, []);
-  // console.log(data.data.winningNumbers.list);
-  // setNumbers(data.data.winningNumbers.list);
+
   console.log(numbers);
   return (
     <>
@@ -60,8 +60,11 @@ const Opap = () => {
         >
           Next
         </Button>
+        {numbers && <p>{numbers?.toString()}</p>}
+
+        {!numbers && <p>Error...</p>}
+
         {/* {numbers ? <span>numbers</span> : <></>} */}
-        <p>{numbers?.toString()}</p>
       </Box>
     </>
   );
