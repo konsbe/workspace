@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { Button } from "@mui/material";
+import { Button, Avatar } from "@mui/material";
+import { Typography } from "@material-ui/core";
 
 const fetchCharacters = async (page: number) => {
   const promise = await fetch(
@@ -17,6 +18,7 @@ const ProfileComp = (): JSX.Element => {
   const { data, isLoading, error } = useQuery(["proile", page], () =>
     fetchCharacters(page)
   );
+  console.log(data);
   const increasePage = () => {
     setPage(page + 1);
   };
@@ -25,7 +27,28 @@ const ProfileComp = (): JSX.Element => {
   };
   return (
     <>
-      <p>{isLoading ? "Loading.." : data.name}</p>
+      <p>
+        {isLoading ? (
+          "Loading.."
+        ) : (
+          <Typography
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Avatar
+              style={{
+                height: 100,
+                width: 100,
+              }}
+              src={data.image}
+            />{" "}
+            {data.name}
+          </Typography>
+        )}
+      </p>
       <Button color="success" onClick={increasePage}>
         Next Character
       </Button>
