@@ -1,9 +1,12 @@
 import React from "react";
 
+import { Routes, Route } from "react-router-dom";
+
 import Layout from "./components/Layout";
 
 //importing views === with components directory but it has better structure
 import Home from "./view/Home";
+import Profiles from "./view/Profiles";
 
 //importing ts styles
 import useStyles from "./css";
@@ -20,7 +23,12 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className={classes.appBody}>
         <Layout>
-          <Home />
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+          <Routes>
+            <Route path="/chars" element={<Profiles />} />
+          </Routes>
         </Layout>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
