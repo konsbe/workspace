@@ -17,10 +17,11 @@ const fetchOpapData = (page: number) => {
   });
 };
 
+
 const Opap = () => {
-  const [page, setPage] = useState<number>(1);
-  const [data, setData] = useState<any>({});
-  const [numbers, setNumbers] = useState<number>();
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState({});
+  const [numbers, setNumbers] = useState<Array<number>>();
 
   useEffect(() => {
     const kinoData = fetchOpapData(page);
@@ -30,7 +31,15 @@ const Opap = () => {
       console.log(res.data.winningNumbers.list);
       setNumbers(res.data.winningNumbers.list);
     });
-  }, []);
+  }, [page]);
+
+  function reducePage(){
+    setPage(page - 1)
+  }
+
+  function increasePage(){
+    setPage(page + 1)
+  }
 
   console.log(numbers);
   return (
@@ -40,9 +49,7 @@ const Opap = () => {
           variant="contained"
           color="error"
           sx={{ width: 300 }}
-          onClick={() => {
-            setPage((old) => Math.max(old - 1, 0));
-          }}
+          onClick={reducePage}
           disabled={page === 0}
         >
           Previous
@@ -54,9 +61,7 @@ const Opap = () => {
           variant="contained"
           color="success"
           sx={{ width: 300 }}
-          onClick={() => {
-            setPage((old) => old + 1);
-          }}
+          onClick={increasePage}
         >
           Next
         </Button>
