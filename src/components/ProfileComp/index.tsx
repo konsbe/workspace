@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useQuery } from "react-query";
 import { Button, Avatar } from "@mui/material";
 import { Typography } from "@material-ui/core";
 
+//useQuery fetching to cache data having access to variable like isLoading, error, cacheTime, staleTime and more..
+import { useQuery } from "react-query";
 const fetchCharacters = async (page: number) => {
   const promise = await fetch(
     `https://rickandmortyapi.com/api/character/${page}`
