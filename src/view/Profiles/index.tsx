@@ -4,7 +4,7 @@ import ProfileComp from "../../components/ProfileComp";
 const Profiles = () => {
   return (
     <>
-      <ProfileComp />
+      <ProfileComp name={"name"} image={"asd"} />
     </>
   );
 };

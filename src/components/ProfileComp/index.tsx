@@ -1,20 +1,25 @@
 import { useState } from "react";
-import { Button, Avatar } from "@mui/material";
-import { Typography } from "@material-ui/core";
+import { Button } from "@mui/material";
 
+import Profile from "./Profile";
 //useQuery fetching to cache data having access to variable like isLoading, error, cacheTime, staleTime and more..
 import { useQuery } from "react-query";
+
+// importing interface
+import { characterInfo } from "./interface";
+
 const fetchCharacters = async (page: number) => {
   const promise = await fetch(
     `https://rickandmortyapi.com/api/character/${page}`
   ).then((res) => {
+    console.log(res);
     return res.json();
   });
 
   return promise;
 };
 
-const ProfileComp = (): JSX.Element => {
+const ProfileComp = (props: characterInfo): JSX.Element => {
   const [page, setPage] = useState<number>(1);
   const { data, isLoading, error } = useQuery(["proile", page], () =>
     fetchCharacters(page)
@@ -32,22 +37,7 @@ const ProfileComp = (): JSX.Element => {
         {isLoading ? (
           "Loading.."
         ) : (
-          <Typography
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Avatar
-              style={{
-                height: 100,
-                width: 100,
-              }}
-              src={data.image}
-            />{" "}
-            {data.name}
-          </Typography>
+          <Profile name={data.name} image={data.image} />
         )}
       </p>
       <Button color="success" onClick={increasePage}>
