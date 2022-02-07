@@ -17,6 +17,8 @@ import Profiles from "./view/Profiles";
 //importing ts styles
 import useStyles from "./css";
 
+import ThemeContextProvider from "./components/contexts/ThemeContext";
+
 const queryClient = new QueryClient();
 
 function App() {
@@ -26,12 +28,14 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className={classes.appBody}>
         <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-          <Routes>
-            <Route path="/chars" element={<Profiles />} />
-          </Routes>
+          <ThemeContextProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+            <Routes>
+              <Route path="/chars" element={<Profiles />} />
+            </Routes>
+          </ThemeContextProvider>
         </Layout>
       </div>
       <ReactQueryDevtools initialIsOpen={false} />
