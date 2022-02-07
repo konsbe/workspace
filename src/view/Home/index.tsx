@@ -7,7 +7,9 @@ import Opap from "./../../components/Opap";
 
 //Install and setup React Query for dev tools an make my wrapper
 
+
 import { ThemeContext } from "../../components/contexts/ThemeContext";
+import UseCase from "./../../components/UseCase";
 
 function Home() {
   const [greeting, setGreeting] = useState<string>("");
@@ -30,6 +32,7 @@ function Home() {
       <InputField name="name" value={greeting} onChange={handleChange} />
       <Greeting greet={greeting} />
       <Opap />
+      <UseCase />
     </Box>
   );
 }
