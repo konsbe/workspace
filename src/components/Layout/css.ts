@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
   navbar: {
     backgroundColor: "#23d4",
     height: 50,
-    marginBottom: 20,
+    // marginBottom: 20,
     paddingTop: "1rem",
   },
   mainBody: {

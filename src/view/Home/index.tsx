@@ -34,11 +34,13 @@ function Home() {
 
   return (
     <>
-      <Button onClick={handleClick}>{triggerText}</Button>
       <Box
         component="div"
         style={{ background: theme.ui, color: theme.syntac, height: "100%" }}
       >
+        <Box component="div">
+          <Button onClick={handleClick}>{triggerText}</Button>
+        </Box>
         <InputField name="name" value={greeting} onChange={handleChange} />
         <Greeting greet={greeting} />
         <Opap />
