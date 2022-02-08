@@ -1,10 +1,9 @@
 import React, { FC, useEffect, useState, useMemo, useCallback } from "react";
-import { Props, ContainerProps } from "./interface";
+import { Props } from "./interface";
 import { Container, ContainerTwo } from "./css";
 
 //Messing around with useCallback(), useMemo(), React.memo()
-
-const CompA: FC<Props> = ({ compValue }) => {
+const ChildCompA: FC<Props> = ({ compValue }) => {
   useEffect(() => {
     console.log("CompA render");
   });
@@ -13,7 +12,7 @@ const CompA: FC<Props> = ({ compValue }) => {
 
 // React.memo and and useCallback is a powerfull tool to memoize stuff and trigger them whenever you like
 // delete the value props from CompB to check the difference or the React.memo()
-const CompB: FC<Props> = React.memo(({ value }) => {
+const ChildCompB: FC<Props> = React.memo(({ value }) => {
   console.log("CompB render");
   return <>{value}</>;
 });
@@ -25,8 +24,8 @@ const UseCase = () => {
   const [compValue, setCompValue] = useState<string>("");
 
   // useMemo something you dont have to get tricky with this and sue effece powerfull to memoize stuff
-  const CompMemoized = useMemo(
-    () => <CompA compValue={compValue} />,
+  const ChildCompAMemoized = useMemo(
+    () => <ChildCompA compValue={compValue} />,
     [compValue]
   );
 
@@ -37,14 +36,14 @@ const UseCase = () => {
     <div>
       <h1>useMemo(), useCallback(), React.memo()</h1>
       <p>open the console and play with the buttons</p>
-
+      {/* emotion styled container from ./css.ts */}
       <Container backgroundcolor="white" onClick={handleClick}>
         {count}
       </Container>
-      {CompMemoized}
+      {ChildCompAMemoized}
       <Container>
         <ContainerTwo>
-          <CompB value={count} />
+          <ChildCompB value={count} />
         </ContainerTwo>
       </Container>
       <button onClick={() => setCompValue("hello" + Math.random())}>

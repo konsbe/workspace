@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { ContainerProps } from "./interface";
 
+
+// emotion styled container
 export const Container = styled.div<ContainerProps>((props) => ({
   border: "1px solid red",
   color: props.color,
