@@ -46,4 +46,4 @@ const UseCase = () => {
   );
 };
 
-export default UseCase;
+export default React.memo(UseCase);
