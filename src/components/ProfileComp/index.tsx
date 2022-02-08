@@ -33,13 +33,13 @@ const ProfileComp = (props: characterInfo): JSX.Element => {
   };
   return (
     <>
-      <p>
+      <div>
         {isLoading ? (
           "Loading.."
         ) : (
           <Profile name={data.name} image={data.image} />
         )}
-      </p>
+      </div>
       <Button color="success" onClick={increasePage}>
         Next Character
       </Button>

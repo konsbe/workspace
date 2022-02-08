@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar } from "@mui/material";
-import { Typography } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 
 // importing interface
 import { characterInfo } from "../interface";
@@ -8,7 +8,8 @@ import { characterInfo } from "../interface";
 const Profile = (props: characterInfo): JSX.Element => {
   return (
     <>
-      <Typography
+      <Box
+        component="div"
         style={{
           display: "flex",
           alignItems: "center",
@@ -23,7 +24,7 @@ const Profile = (props: characterInfo): JSX.Element => {
           src={props.image}
         />{" "}
         {props.name}
-      </Typography>
+      </Box>
     </>
   );
 };
