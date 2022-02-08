@@ -28,7 +28,7 @@ const UseCase = () => {
     () => <ChildCompA compValue={compValue} />,
     [compValue]
   );
-
+  //
   // i want to have a callback func witch not triggers the CompB all the time
   const handleClick = useCallback(() => setCount((c) => c + 1), [setCount]);
 
