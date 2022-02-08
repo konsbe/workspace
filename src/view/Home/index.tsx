@@ -4,19 +4,17 @@ import Greeting from "./../../components/Greeting";
 
 import InputField from "./../../components/InputField";
 import Opap from "./../../components/Opap";
-
-//Install and setup React Query for dev tools an make my wrapper
-
-
-import { ThemeContext } from "../../components/contexts/ThemeContext";
 import UseCase from "./../../components/UseCase";
+
+// Importing my Context-Provider
+import { ThemeContext } from "../../components/contexts/ThemeContext";
 
 function Home() {
   const [greeting, setGreeting] = useState<string>("");
 
-  //access to Context without passing Props from Parent to Child
+  //access to Context without passing Props from Parent to Child you can do it in each of this child component
   const context: any = useContext(ThemeContext);
-  console.log(context, "things");
+  console.log(context, "my context");
   const { iseLightTheme, light, dark } = context;
   const theme: any = iseLightTheme ? light : dark;
 

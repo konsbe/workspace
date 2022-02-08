@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
 
+// Creating my Context-Provider in this case is just a theme
 import { themeContextInter } from "./interface";
 
 export const ThemeContext = createContext({});

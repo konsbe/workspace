@@ -4,12 +4,10 @@ import { Box } from "@mui/system";
 import ProfileComp from "../../components/ProfileComp";
 import { ThemeContext } from "../../components/contexts/ThemeContext";
 
-import { themeContextInter } from "../../components/contexts/interface";
+
 
 const Profiles = (): JSX.Element => {
-  // const context: any = useContext(ThemeContext);
-  // console.log(things, "things");
-
+  // another way to pass Context - Providers is with arrow function
   return (
     <ThemeContext.Consumer>
       {(context) => {

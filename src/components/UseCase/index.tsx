@@ -19,7 +19,6 @@ const CompB: FC<Props> = React.memo(({ value }) => {
 
 const UseCase = () => {
   const [count, setCount] = useState<number>(0);
-  const [count2, setCount2] = useState<number>(0);
   console.log("App render", count);
 
   const [compValue, setCompValue] = useState<string>("");
