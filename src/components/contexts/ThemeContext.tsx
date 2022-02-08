@@ -17,6 +17,7 @@ const ThemeContextProvider: React.FC = ({ children }) => {
   );
 };
 
+
 export default ThemeContextProvider;
 
 //with class component you can provide it like:

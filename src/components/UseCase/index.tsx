@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState, useMemo, useCallback } from "react";
-import { Props } from "./interface";
+import { Props, ContainerProps } from "./interface";
+import { Container, ContainerTwo } from "./css";
 
 //Messing around with useCallback(), useMemo(), React.memo()
 
@@ -36,9 +37,16 @@ const UseCase = () => {
     <div>
       <h1>useMemo(), useCallback(), React.memo()</h1>
       <p>open the console and play with the buttons</p>
-      <button onClick={handleClick}>{count}</button>
+
+      <Container backgroundcolor="white" onClick={handleClick}>
+        {count}
+      </Container>
       {CompMemoized}
-      <CompB value={count} />
+      <Container>
+        <ContainerTwo>
+          <CompB value={count} />
+        </ContainerTwo>
+      </Container>
       <button onClick={() => setCompValue("hello" + Math.random())}>
         Button
       </button>
