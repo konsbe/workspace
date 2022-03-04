@@ -2,6 +2,20 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+#### Typescript syntax
+#### React js
+#### ReactQuery
+#### Context and Provider
+#### Mui Library
+#### Style Containers
+#### Axios Call
+#### Basic Hooks
+#### UseMemo
+#### UseCallBack
+
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
